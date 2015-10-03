@@ -5,7 +5,10 @@ namespace ComplexNumbers
 {
     public class Complex
     {
-
+        /// <summary>
+        /// Погрешность для сравнения вещественных чисел
+        /// </summary>
+        private const double epsilon = 1e-20;
         #region Конструкторы
 
         public Complex(double re = 0, double im = 0)
@@ -119,7 +122,7 @@ namespace ComplexNumbers
             {
                 return false;
             }
-            return (Re == complex.Re) && (Im == complex.Im);
+            return (Math.Abs(Re - complex.Re) < epsilon) && (Math.Abs(Im - complex.Im) < epsilon);
         }
 
         #endregion
